@@ -8,9 +8,18 @@ workflows:
 
     scripts:
       - name: Generate Android project files
-        script: flutter create --platforms=android --project-name shanika_constructions .
-      - name: Verify Android project files
-        script: ls -la android
+        script: |
+          set -e
+          echo "Current directory:"
+          pwd
+          echo "Project files:"
+          ls -la
+          echo "Generating Android platform:"
+          flutter create --platforms=android --project-name shanika_constructions .
+          echo "Checking Android folder:"
+          test -d android
+          ls -la android
+
       - name: Get Flutter packages
         script: flutter pub get
 
