@@ -9,7 +9,8 @@ workflows:
     scripts:
       - name: Generate Android project files
         script: flutter create --platforms=android --project-name shanika_constructions .
-
+      - name: Verify Android project files
+        script: ls -la android
       - name: Get Flutter packages
         script: flutter pub get
 
